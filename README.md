@@ -355,6 +355,11 @@ Force an IP to be used for geolocation lookup. In local environments, this needs
 valid IP address for GeoMate to work, since your local IP won't return any results. Can also be used
 to debug IP's from different locations.  
 
+### useCloudflareCountryCode [bool]
+*Default: `false`*  
+When calling `craft.geomate.countryCode`, return the two-character country code contained in
+Cloudflare's `CF-IPCountry` header. If there is no value, return using the default GeoMate method.
+
 ### fallbackIp [null|string]
 *Default: `null`*  
 You can supply a fallback IP that will be used if the supplied IP can't be found. It's probably a good

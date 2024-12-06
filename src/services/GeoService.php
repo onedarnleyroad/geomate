@@ -66,6 +66,16 @@ class GeoService extends Component
      */
     public function getCountryCode($ip = null)
     {
+        /** @var Settings $settings */
+        $settings = GeoMate::$plugin->getSettings();
+
+        if($settings->useCloudflareCountryCode) {
+            $header = Craft::$app->getRequest()->headers->get('CF-IPCountry');
+            if(!empty($header)) {
+                return $header;
+            }
+        }
+
         $info = $this->getCountryInfo($ip);
         return $info->country->isoCode ?? '';
     }

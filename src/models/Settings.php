@@ -173,6 +173,11 @@ class Settings extends Model
     public $fallbackIp;
 
     /**
+     * @var boolean
+     */
+    public $useCloudflareIp = false;
+
+    /**
      * @var int
      */
     public $minimumAcceptLanguageQuality = 80;
